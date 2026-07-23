@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!--
+    PERSONALIZE ANTES DE PUBLICAR (use Ctrl+F pra achar cada um):
+    Júlio Takeichi     -> seu nome
+    Rio de Janeiro   -> sua cidade
+    5521983228935   -> seu numero com pais e DDD, so numeros (ex: 5585999998888)
+    juliotakeichi@outlook.com    -> seu email (ou apague a linha do e-mail no rodape)
+    Projetos       -> troque pelos seus, ou mantenha os de demonstracao
+    Passo a passo: _GUIA-personalizar.md  e  _GUIA-publicar-github-pages.md
+  -->
+
+  <title>Júlio Takeichi · Sites, agentes de WhatsApp e sistemas em Rio de Janeiro</title>
+  <meta name="description" content="Crio sites, agentes de atendimento no WhatsApp e sistemas sob medida pra negócios e profissionais autônomos de Rio de Janeiro venderem mais. Fale comigo no WhatsApp." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Júlio Takeichi · Sites, agentes de WhatsApp e sistemas" />
+  <meta property="og:description" content="Tecnologia pro seu negócio em Rio de Janeiro vender mais. Sites, agentes de WhatsApp e sistemas sob medida." />
+  <meta name="robots" content="index, follow" />
+  <!-- Depois de publicar, preencha a URL do seu GitHub Pages e descomente:
+  <link rel="canonical" href="https://SEU-USUARIO.github.io/portfolio/" />
+  <meta property="og:url" content="https://SEU-USUARIO.github.io/portfolio/" /> -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3C/svg%3E" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Júlio Takeichi",
+    "description": "Sites, agentes de atendimento no WhatsApp e sistemas sob medida para negócios locais e profissionais autônomos.",
+    "areaServed": { "@type": "City", "name": "Rio de Janeiro" },
+    "knowsAbout": ["Sites e landing pages", "Agentes de atendimento no WhatsApp", "Sistemas sob medida"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- marca que o JS esta ligado, pra so entao esconder o que vai animar (sem JS, tudo aparece) -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <style>
+    :root {
+      --brand: #0f766e;        /* cor de destaque. Troque no :root se quiser outra */
+      --brand-dark: #134e4a;
+      --brand-soft: rgba(15, 118, 110, 0.10);
+      --ink: #1a1a1a;
+      --muted: #475569;
+      --line: #e5e7eb;
+      --bg: #ffffff;
+      --bg-soft: #f6f7f7;
+      --radius: 14px;
+      --wrap: 1120px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
+    section { padding: 80px 0; }
+    h1, h2, h3 { font-family: 'Space Grotesk', Helvetica, Arial, sans-serif; line-height: 1.15; letter-spacing: -0.01em; }
+    h2 { font-size: clamp(1.6rem, 4vw, 2.25rem); font-weight: 700; }
+    p { color: var(--muted); }
+
+    a { color: var(--brand); }
+    :focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; border-radius: 6px; }
+
+    /* Botoes: todos com area de toque >= 44px */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 44px; padding: 12px 22px; border-radius: 999px;
+      font-weight: 700; font-size: 1rem; text-decoration: none; cursor: pointer;
+      border: 2px solid transparent; transition: background-color .15s ease, border-color .15s ease;
+    }
+    .btn-wa { background: var(--brand); color: #ffffff; border-color: var(--brand); }
+    .btn-wa:hover { background: var(--brand-dark); border-color: var(--brand-dark); }
+    .btn-ghost { background: transparent; color: var(--brand); border-color: var(--brand); }
+    .btn-ghost:hover { background: var(--brand-soft); }
+    .wa-ico { width: 18px; height: 18px; flex: 0 0 auto; }
+
+    /* Header */
+    .site-header { border-bottom: 1px solid var(--line); background: var(--bg); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
+    .brand {
+      display: inline-flex; align-items: center; min-height: 44px;
+      font-family: 'Space Grotesk', Helvetica, Arial, sans-serif;
+      font-weight: 700; font-size: 1.15rem; color: var(--ink); text-decoration: none; letter-spacing: -0.01em;
+    }
+    .header-cta { padding: 10px 18px; }
+
+    /* Hero */
+    .hero { padding-top: 72px; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+    .eyebrow {
+      display: inline-block; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--brand); margin-bottom: 16px;
+    }
+    .hero h1 { font-size: clamp(2rem, 5.2vw, 3.25rem); font-weight: 700; max-width: 16ch; }
+    .hero .lead { font-size: clamp(1.05rem, 2vw, 1.2rem); margin-top: 18px; max-width: 42ch; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .photo-reserve {
+      aspect-ratio: 4 / 5; width: 100%; border-radius: var(--radius);
+      background: linear-gradient(150deg, var(--brand) 0%, var(--brand-dark) 100%);
+      display: flex; align-items: flex-end; padding: 18px;
+    }
+    .reserve-mark {
+      display: inline-block; background: rgba(255,255,255,0.16); color: #ffffff;
+      font-size: 0.82rem; font-weight: 500; padding: 8px 12px; border-radius: 8px;
+    }
+
+    /* Section heads */
+    .sec-head { max-width: 42ch; margin-bottom: 40px; }
+    .sec-head .kicker { display: inline-block; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand); margin-bottom: 12px; }
+    .sec-head p { margin-top: 10px; }
+    .soft { background: var(--bg-soft); }
+
+    /* Cards grid */
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); padding: 26px; }
+    .card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+    .card p { font-size: 0.98rem; }
+    .card .num {
+      display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px;
+      border-radius: 999px; border: 2px solid var(--brand); color: var(--brand); font-weight: 700; margin-bottom: 16px;
+    }
+
+    /* Project cards */
+    .proj { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--bg); display: flex; flex-direction: column; }
+    .proj-thumb {
+      aspect-ratio: 16 / 10; background: linear-gradient(150deg, var(--brand) 0%, var(--brand-dark) 100%);
+      display: flex; align-items: center; justify-content: center; padding: 20px;
+    }
+    .proj-thumb span { color: #ffffff; font-weight: 700; font-size: 1.15rem; text-align: center; letter-spacing: -0.01em; }
+    .proj-body { padding: 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .tag {
+      align-self: flex-start; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+      color: var(--brand); background: var(--brand-soft); padding: 5px 10px; border-radius: 999px;
+    }
+    .proj-body h3 { font-size: 1.12rem; font-weight: 700; }
+    .proj-body p { font-size: 0.96rem; }
+    .proj-note { margin-top: auto; font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+
+    /* Steps */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .step { padding: 4px; }
+    .step .n { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 999px; background: var(--brand); color: #fff; font-weight: 700; margin-bottom: 14px; }
+    .step h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+    .step p { font-size: 0.96rem; }
+
+    /* About */
+    .about-copy { max-width: 60ch; }
+    .about-copy p + p { margin-top: 16px; }
+
+    /* CTA band */
+    .cta-band { background: var(--brand); }
+    .cta-band .wrap { text-align: center; }
+    .cta-band h2 { color: #ffffff; max-width: 22ch; margin: 0 auto 14px; }
+    .cta-band p { color: rgba(255,255,255,0.92); max-width: 46ch; margin: 0 auto 26px; }
+    .cta-band .btn-wa { background: #ffffff; color: var(--brand-dark); border-color: #ffffff; }
+    .cta-band .btn-wa:hover { background: #f0fdfa; border-color: #f0fdfa; }
+
+    /* Footer */
+    footer { background: var(--ink); color: #ffffff; padding: 48px 0; }
+    .foot-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; align-items: center; }
+    .foot-brand { font-family: 'Space Grotesk', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 1.1rem; }
+    .foot-links { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; }
+    .foot-links a { display: inline-flex; align-items: center; min-height: 44px; color: #ffffff; text-decoration: none; font-size: 0.95rem; }
+    .foot-links a:hover { text-decoration: underline; }
+    .foot-city { display: inline-flex; align-items: center; min-height: 44px; color: rgba(255,255,255,0.72); font-size: 0.95rem; }
+    .foot-legal { width: 100%; color: rgba(255,255,255,0.72); font-size: 0.85rem; margin-top: 8px; }
+
+    /* Floating WhatsApp */
+    .wa-float {
+      position: fixed; right: 18px; bottom: 18px; z-index: 50;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 52px; padding: 0 20px; border-radius: 999px;
+      background: var(--brand); color: #ffffff; font-weight: 700; text-decoration: none;
+      box-shadow: 0 6px 20px rgba(15,118,110,0.35);
+    }
+    .wa-float:hover { background: var(--brand-dark); }
+    .wa-float .label { font-size: 0.95rem; }
+
+    /* Mobile */
+    @media (max-width: 860px) {
+      section { padding: 56px 0; }
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hero-media { order: -1; max-width: 300px; }
+      .grid, .steps { grid-template-columns: 1fr; }
+      .header-cta .label-long { display: none; }
+      .wa-float .label { display: none; }
+      .wa-float { padding: 0; width: 52px; }
+    }
+
+    /* Animacao de entrada (fade + subida). So ativa com JS; sem JS tudo aparece normal. */
+    .js [data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+    .js [data-reveal].in { opacity: 1; transform: none; }
+    .js .grid [data-reveal]:nth-child(2), .js .steps [data-reveal]:nth-child(2) { transition-delay: .08s; }
+    .js .grid [data-reveal]:nth-child(3), .js .steps [data-reveal]:nth-child(3) { transition-delay: .16s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">Júlio Takeichi</a>
+      <a class="btn btn-wa header-cta" href="https://wa.me/5521983228935?text=Oi!%20Vi%20o%20seu%20portf%C3%B3lio%20e%20queria%20saber%20mais." target="_blank" rel="noopener noreferrer">
+        <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.01c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.82-.11-.42-.11-.96-.29-1.65-.58-2.9-1.25-4.8-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-2.99 0-1.42.75-2.12 1.01-2.41.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.99.88 2.13.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.17-.19.69-.81.88-1.09.19-.28.38-.23.64-.14.26.09 1.66.78 1.94.93.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/></svg>
+        <span class="label-long">Chamar no WhatsApp</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy" data-reveal>
+          <span class="eyebrow">Tecnologia pro seu negócio vender mais</span>
+          <h1>Mais gente chamando o seu negócio no WhatsApp, sem você entender de tecnologia.</h1>
+          <p class="lead">Eu crio sites, agentes de atendimento no WhatsApp e sistemas sob medida pra negócios e profissionais autônomos de Rio de Janeiro. Você cuida do seu trabalho, eu cuido da parte técnica.</p>
+          <div class="hero-cta">
+            <a class="btn btn-wa" href="https://wa.me/5521983228935?text=Oi!%20Vi%20o%20seu%20portf%C3%B3lio%20e%20queria%20saber%20mais." target="_blank" rel="noopener noreferrer">
+              <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.01c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.82-.11-.42-.11-.96-.29-1.65-.58-2.9-1.25-4.8-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-2.99 0-1.42.75-2.12 1.01-2.41.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.99.88 2.13.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.17-.19.69-.81.88-1.09.19-.28.38-.23.64-.14.26.09 1.66.78 1.94.93.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/></svg>
+              Falar comigo no WhatsApp
+            </a>
+            <a class="btn btn-ghost" href="#projetos">Ver projetos</a>
+          </div>
+        </div>
+        <div class="hero-media" aria-hidden="true" data-reveal>
+          <div class="photo-reserve">
+            <span class="reserve-mark">[PLACEHOLDER: sua foto ou logo aqui]</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <span class="kicker">O que eu faço por você</span>
+          <h2>Três formas de trazer mais resultado pro seu negócio</h2>
+        </div>
+        <div class="grid">
+          <div class="card" data-reveal>
+            <span class="num">1</span>
+            <h3>Site ou página</h3>
+            <p>Um lugar profissional que leva quem te acha no Google direto pro seu WhatsApp.</p>
+          </div>
+          <div class="card" data-reveal>
+            <span class="num">2</span>
+            <h3>Agente no WhatsApp</h3>
+            <p>Responde seu cliente na hora, dia e noite, pra você não perder venda por demorar.</p>
+          </div>
+          <div class="card" data-reveal>
+            <span class="num">3</span>
+            <h3>Sistema sob medida</h3>
+            <p>Agenda, cadastro e controle do seu jeito, pra você parar de anotar tudo no caderno.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <span class="kicker">Projetos</span>
+          <h2>Alguns trabalhos que mostram o que eu entrego</h2>
+          <p>Projetos de demonstração que eu montei pra mostrar o padrão. O seu fica com a sua cara.</p>
+        </div>
+        <div class="grid">
+          <div class="proj" data-reveal>
+            <div class="proj-thumb"><span>Barbearia</span></div>
+            <div class="proj-body">
+              <span class="tag">Projeto de demonstração</span>
+              <h3>Site de barbearia</h3>
+              <p>Site que mostra os serviços e leva o cliente direto pro WhatsApp pra marcar horário.</p>
+              <span class="proj-note">Preview em breve</span>
+            </div>
+          </div>
+          <div class="proj" data-reveal>
+            <div class="proj-thumb"><span>Clínica</span></div>
+            <div class="proj-body">
+              <span class="tag">Projeto de demonstração</span>
+              <h3>Site de clínica</h3>
+              <p>Página que apresenta os serviços e facilita o agendamento da primeira consulta.</p>
+              <span class="proj-note">Preview em breve</span>
+            </div>
+          </div>
+          <div class="proj" data-reveal>
+            <div class="proj-thumb"><span>Personal Trainer</span></div>
+            <div class="proj-body">
+              <span class="tag">Projeto de demonstração</span>
+              <h3>Site de personal trainer</h3>
+              <p>Mostra seus resultados e planos, com botão direto pro WhatsApp pra fechar aula.</p>
+              <span class="proj-note">Preview em breve</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <span class="kicker">Como funciona</span>
+          <h2>Simples, do primeiro contato até a entrega</h2>
+        </div>
+        <div class="steps">
+          <div class="step" data-reveal>
+            <span class="n">1</span>
+            <h3>Você me chama no WhatsApp</h3>
+            <p>A gente conversa sobre o seu negócio e onde dá pra ter mais resultado.</p>
+          </div>
+          <div class="step" data-reveal>
+            <span class="n">2</span>
+            <h3>Eu monto a proposta</h3>
+            <p>Te mostro o que faz sentido e combino um valor especial pro primeiro trabalho.</p>
+          </div>
+          <div class="step" data-reveal>
+            <span class="n">3</span>
+            <h3>Entrego e acompanho</h3>
+            <p>Coloco no ar e fico por perto pra ajustar o que precisar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="sec-head" data-reveal><span class="kicker">Quem sou</span></div>
+        <div class="about-copy" data-reveal>
+          <p>Sou o Júlio Takeichi, de Rio de Janeiro. Construo sistemas de dados que rodam em produção — inclusive pro departamento de performance de um clube de futebol profissional. Aqui fora, aplico o mesmo padrão pra resolver o problema real de pequenos negócios com tecnologia: sem enrolação, sem prometer o que não entrego.</p>
+          <p>Se fizer sentido, me chama no WhatsApp e a gente conversa sobre o seu caso.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap">
+        <h2 data-reveal>Bora ver onde dá pra melhorar no seu negócio?</h2>
+        <p>Me chama no WhatsApp. A conversa é rápida e sem compromisso.</p>
+        <a class="btn btn-wa" href="https://wa.me/5521983228935?text=Oi!%20Vi%20o%20seu%20portf%C3%B3lio%20e%20queria%20saber%20mais." target="_blank" rel="noopener noreferrer">
+          <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.01c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.82-.11-.42-.11-.96-.29-1.65-.58-2.9-1.25-4.8-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-2.99 0-1.42.75-2.12 1.01-2.41.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.99.88 2.13.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.17-.19.69-.81.88-1.09.19-.28.38-.23.64-.14.26.09 1.66.78 1.94.93.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/></svg>
+          Falar comigo no WhatsApp
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot-grid">
+      <span class="foot-brand">Júlio Takeichi</span>
+      <nav class="foot-links" aria-label="Contato">
+        <a href="https://wa.me/5521983228935?text=Oi!%20Vi%20o%20seu%20portf%C3%B3lio%20e%20queria%20saber%20mais." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="mailto:juliotakeichi@outlook.com">E-mail</a>
+        <!-- TODO: preencher com a URL real assim que o portfolio de Sports Data
+             (repo portfolio-julio) for publicado no Vercel. -->
+        <!-- <a href="https://SEU-PORTFOLIO-SPORTS-DATA.vercel.app" target="_blank" rel="noopener noreferrer">Projetos de Sports Data</a> -->
+        <span class="foot-city">Rio de Janeiro</span>
+      </nav>
+      <p class="foot-legal">Sites, agentes de WhatsApp e sistemas sob medida.</p>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/5521983228935?text=Oi!%20Vi%20o%20seu%20portf%C3%B3lio%20e%20queria%20saber%20mais." target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+    <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.01c-.24.68-1.42 1.31-1.95 1.36-.5.05-1.13.07-1.82-.11-.42-.11-.96-.29-1.65-.58-2.9-1.25-4.8-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-2.99 0-1.42.75-2.12 1.01-2.41.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.99.88 2.13.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.17-.19.69-.81.88-1.09.19-.28.38-.23.64-.14.26.09 1.66.78 1.94.93.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/></svg>
+    <span class="label">WhatsApp</span>
+  </a>
+
+  <script>
+    (function () {
+      var els = document.querySelectorAll('[data-reveal]');
+      if (!('IntersectionObserver' in window) || !els.length) {
+        for (var i = 0; i < els.length; i++) els[i].classList.add('in');
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>
